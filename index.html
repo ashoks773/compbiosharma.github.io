@@ -1,0 +1,1223 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ashok K. Sharma — Bioinformatics Scientist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ===================== THEME VARIABLES ===================== */
+:root {
+  --transition: background 0.3s, color 0.3s, border-color 0.3s;
+}
+
+[data-theme="dark"] {
+  --bg:      #0d1117;
+  --bg2:     #161b22;
+  --bg3:     #1f2733;
+  --surface: #21262d;
+  --border:  #30363d;
+  --accent:  #58a6ff;
+  --accent2: #3fb950;
+  --accent3: #f78166;
+  --text:    #e6edf3;
+  --text2:   #8b949e;
+  --text3:   #6e7681;
+  --shadow:  rgba(0,0,0,0.4);
+}
+[data-theme="light"] {
+  --bg:      #ffffff;
+  --bg2:     #f6f8fa;
+  --bg3:     #eaeef2;
+  --surface: #f0f2f5;
+  --border:  #d0d7de;
+  --accent:  #0969da;
+  --accent2: #1a7f37;
+  --accent3: #cf222e;
+  --text:    #1f2328;
+  --text2:   #636c76;
+  --text3:   #818b98;
+  --shadow:  rgba(0,0,0,0.1);
+}
+[data-theme="sepia"] {
+  --bg:      #f4efe8;
+  --bg2:     #ede6d9;
+  --bg3:     #e4d9c8;
+  --surface: #ddd2be;
+  --border:  #c8b89a;
+  --accent:  #7c5c2e;
+  --accent2: #4a7c3f;
+  --accent3: #a03020;
+  --text:    #2c2010;
+  --text2:   #6b5740;
+  --text3:   #9c8060;
+  --shadow:  rgba(80,50,10,0.15);
+}
+[data-theme="ocean"] {
+  --bg:      #0a1628;
+  --bg2:     #0d1f3c;
+  --bg3:     #112a50;
+  --surface: #163460;
+  --border:  #1e4a80;
+  --accent:  #4fc3f7;
+  --accent2: #80cbc4;
+  --accent3: #ffb74d;
+  --text:    #e1f0ff;
+  --text2:   #90b8d8;
+  --text3:   #5a88b0;
+  --shadow:  rgba(0,0,0,0.5);
+}
+[data-theme="forest"] {
+  --bg:      #0d1a0f;
+  --bg2:     #121f14;
+  --bg3:     #192a1b;
+  --surface: #203522;
+  --border:  #2d4a30;
+  --accent:  #6dbf6d;
+  --accent2: #a8d8a8;
+  --accent3: #e8a040;
+  --text:    #d8f0d8;
+  --text2:   #8ab88a;
+  --text3:   #5a885a;
+  --shadow:  rgba(0,0,0,0.5);
+}
+[data-theme="rose"] {
+  --bg:      #fff5f7;
+  --bg2:     #ffeef2;
+  --bg3:     #ffe0e8;
+  --surface: #ffd0dc;
+  --border:  #f0b0c0;
+  --accent:  #c0305a;
+  --accent2: #a06030;
+  --accent3: #6040a0;
+  --text:    #2a0a14;
+  --text2:   #804060;
+  --text3:   #b06080;
+  --shadow:  rgba(100,0,30,0.1);
+}
+
+/* ===================== RESET & BASE ===================== */
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  line-height: 1.7;
+  transition: var(--transition);
+}
+
+/* ===================== NAV ===================== */
+nav {
+  position: fixed; top:0; left:0; right:0; z-index:200;
+  height: 60px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 2rem;
+  box-shadow: 0 1px 8px var(--shadow);
+  transition: var(--transition);
+}
+.nav-brand {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.05rem;
+  color: var(--text);
+  text-decoration: none;
+}
+.nav-right { display:flex; align-items:center; gap:0.25rem; }
+.nav-links { display:flex; gap:0.1rem; }
+.nav-links a {
+  color: var(--text2);
+  text-decoration: none;
+  font-size: 0.83rem;
+  font-weight: 500;
+  padding: 0.38rem 0.75rem;
+  border-radius: 6px;
+  transition: all 0.2s;
+  letter-spacing: 0.02em;
+}
+.nav-links a:hover { color:var(--text); background:var(--surface); }
+
+/* Theme switcher button */
+.theme-btn {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text2);
+  padding: 0.35rem 0.7rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-family: 'DM Sans', sans-serif;
+  cursor: pointer;
+  display: flex; align-items:center; gap:0.4rem;
+  transition: all 0.2s;
+  white-space: nowrap;
+  margin-left: 0.5rem;
+}
+.theme-btn:hover { border-color:var(--accent); color:var(--accent); }
+
+/* Theme dropdown */
+.theme-picker {
+  position: relative;
+}
+.theme-dropdown {
+  display: none;
+  position: absolute; top:calc(100% + 8px); right:0;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 0.5rem;
+  min-width: 160px;
+  box-shadow: 0 8px 24px var(--shadow);
+  z-index: 300;
+}
+.theme-picker.open .theme-dropdown { display:block; }
+.theme-option {
+  display: flex; align-items:center; gap:0.6rem;
+  padding: 0.45rem 0.7rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.82rem;
+  color: var(--text2);
+  transition: all 0.15s;
+}
+.theme-option:hover { background:var(--surface); color:var(--text); }
+.theme-option.active { color:var(--accent); background:var(--surface); }
+.theme-swatch {
+  width:14px; height:14px; border-radius:50%;
+  border: 1px solid var(--border);
+  flex-shrink:0;
+}
+
+/* ===================== LAYOUT ===================== */
+main { padding-top: 60px; }
+
+/* ===================== HERO ===================== */
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 260px;
+  gap: 4rem;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 5rem 2rem 4rem;
+  align-items: start;
+}
+.hero-subtitle {
+  color: var(--accent);
+  font-size: 0.82rem;
+  font-weight: 600;
+  margin-bottom: 0.6rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-family: 'DM Mono', monospace;
+}
+h1 {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+  color: var(--text);
+}
+.hero-bio {
+  color: var(--text2);
+  font-size: 0.92rem;
+  line-height: 1.85;
+  margin-bottom: 1rem;
+}
+.hero-bio a { color:var(--accent); text-decoration:none; }
+.hero-bio a:hover { text-decoration:underline; }
+
+.hero-links { display:flex; flex-wrap:wrap; gap:0.5rem; margin: 1.5rem 0; }
+.hero-links a {
+  display: inline-flex; align-items:center; gap:0.35rem;
+  padding: 0.4rem 0.9rem;
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  color: var(--text2);
+  text-decoration: none;
+  font-size: 0.8rem;
+  font-weight: 500;
+  background: var(--surface);
+  transition: all 0.2s;
+}
+.hero-links a:hover { border-color:var(--accent); color:var(--accent); background:var(--bg2); }
+.hero-links a svg { width:13px; height:13px; }
+
+.interests { display:flex; flex-wrap:wrap; gap:0.45rem; margin-top:0.5rem; }
+.interest-tag {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text3);
+  padding: 0.25rem 0.7rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+.interest-tag:hover { border-color:var(--accent); color:var(--accent); }
+
+/* Profile column */
+.hero-photo-col { display:flex; flex-direction:column; align-items:center; gap:1.2rem; position:sticky; top:80px; }
+.avatar-wrap {
+  width: 190px; height:190px;
+  border-radius:50%;
+  padding: 3px;
+  background: conic-gradient(var(--accent), var(--accent2), var(--accent3), var(--accent));
+  animation: spin 6s linear infinite;
+}
+@keyframes spin { to { filter: hue-rotate(360deg); } }
+.avatar-inner {
+  width:100%; height:100%;
+  border-radius:50%;
+  background: var(--bg2);
+  overflow:hidden;
+  display:flex; align-items:center; justify-content:center;
+  font-family:'DM Serif Display',serif; font-size:3.5rem; color:var(--text3);
+}
+.avatar-inner img { width:100%; height:100%; object-fit:cover; }
+
+.stats { width:100%; display:flex; flex-direction:column; gap:0.4rem; }
+.stat-row {
+  display:flex; justify-content:space-between; align-items:center;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  padding: 0.5rem 0.9rem;
+  font-size: 0.8rem;
+  transition: var(--transition);
+}
+.stat-val {
+  font-family:'DM Mono',monospace;
+  font-weight:500;
+  color:var(--accent2);
+  font-size:0.95rem;
+}
+.stat-lbl { color:var(--text2); }
+
+/* ===================== SECTION ===================== */
+section {
+  max-width:1000px; margin:0 auto;
+  padding: 3.5rem 2rem;
+  border-top: 1px solid var(--border);
+}
+.section-header {
+  display:flex; align-items:center; gap:1rem;
+  margin-bottom:2.5rem;
+}
+.section-title {
+  font-family:'DM Serif Display',serif;
+  font-size:1.7rem; color:var(--text);
+  white-space:nowrap;
+}
+.section-line {
+  flex:1; height:1px;
+  background: linear-gradient(to right, var(--border), transparent);
+}
+
+/* ===================== EXPERIENCE ===================== */
+.timeline { display:flex; flex-direction:column; }
+.exp-item {
+  display:grid; grid-template-columns:130px 1fr;
+  gap:0 1.8rem; position:relative;
+}
+.exp-item::before {
+  content:''; position:absolute;
+  left:129px; top:14px; bottom:0;
+  width:1px; background:var(--border);
+}
+.exp-item:last-child::before { display:none; }
+.exp-date {
+  padding-top:10px; text-align:right;
+  color:var(--text3); font-size:0.75rem;
+  font-family:'DM Mono',monospace; line-height:1.4;
+}
+.exp-body {
+  padding: 0 0 2.5rem 1.8rem;
+  position:relative;
+}
+.exp-body::before {
+  content:''; position:absolute;
+  left:-5px; top:14px;
+  width:10px; height:10px; border-radius:50%;
+  background:var(--accent); border:2px solid var(--bg);
+  z-index:1;
+}
+.exp-role { font-weight:600; font-size:0.97rem; color:var(--text); margin-bottom:0.1rem; }
+.exp-org { color:var(--accent); font-size:0.85rem; font-weight:500; text-decoration:none; display:block; margin-bottom:0.5rem; }
+.exp-org:hover { text-decoration:underline; }
+.exp-desc { color:var(--text2); font-size:0.86rem; line-height:1.75; }
+
+/* ===================== PUBLICATIONS ===================== */
+.pub-filters {
+  display:flex; gap:0.4rem; flex-wrap:wrap;
+  margin-bottom:1.8rem;
+}
+.pub-filter {
+  padding:0.28rem 0.85rem;
+  border:1px solid var(--border);
+  border-radius:20px; background:transparent;
+  color:var(--text2); font-size:0.78rem;
+  font-family:'DM Sans',sans-serif;
+  cursor:pointer; transition:all 0.2s;
+}
+.pub-filter.active, .pub-filter:hover {
+  border-color:var(--accent); color:var(--accent);
+  background:var(--bg2);
+}
+
+.pub-grid { display:flex; flex-direction:column; gap:0.85rem; }
+
+.pub-card {
+  background:var(--bg2);
+  border:1px solid var(--border);
+  border-radius:10px;
+  padding:1.2rem 1.4rem;
+  display:grid; grid-template-columns:72px 1fr;
+  gap:1.1rem; transition:all 0.2s;
+}
+.pub-card:hover {
+  border-color: rgba(88,166,255,0.45);
+  background:var(--bg3);
+  transform:translateX(3px);
+  box-shadow: -3px 0 0 var(--accent);
+}
+.pub-img {
+  width:72px; height:72px;
+  border-radius:7px; overflow:hidden;
+  background:var(--surface); flex-shrink:0;
+  border:1px solid var(--border);
+}
+.pub-img img {
+  width:100%; height:100%; object-fit:cover; display:block;
+}
+
+.pub-title {
+  font-weight:600; font-size:0.92rem;
+  color:var(--text); margin-bottom:0.3rem; line-height:1.4;
+}
+.pub-title a { color:inherit; text-decoration:none; }
+.pub-title a:hover { color:var(--accent); }
+.pub-authors {
+  color:var(--text3); font-size:0.76rem;
+  margin-bottom:0.35rem; line-height:1.55;
+}
+.pub-authors strong { color:var(--text2); font-weight:600; }
+.pub-meta { display:flex; align-items:center; gap:0.5rem; flex-wrap:wrap; margin-bottom:0.45rem; }
+.pub-journal { font-style:italic; color:var(--accent2); font-size:0.78rem; font-weight:500; }
+.pub-year {
+  font-family:'DM Mono',monospace; font-size:0.72rem;
+  color:var(--text3); background:var(--surface);
+  padding:0.1rem 0.45rem; border-radius:4px;
+  border:1px solid var(--border);
+}
+.pub-award {
+  font-size:0.7rem; color:#f0c040;
+  background:rgba(240,192,64,0.12);
+  border:1px solid rgba(240,192,64,0.3);
+  padding:0.1rem 0.45rem; border-radius:4px; font-weight:600;
+}
+.pub-abstract {
+  color:var(--text2); font-size:0.8rem; line-height:1.6;
+  margin-bottom:0.55rem;
+  display:-webkit-box; -webkit-line-clamp:2;
+  -webkit-box-orient:vertical; overflow:hidden;
+}
+.pub-links { display:flex; gap:0.35rem; flex-wrap:wrap; }
+.pub-link {
+  display:inline-flex; align-items:center; gap:0.25rem;
+  font-size:0.72rem; font-weight:600;
+  padding:0.18rem 0.55rem; border-radius:5px;
+  text-decoration:none; letter-spacing:0.04em;
+  text-transform:uppercase; transition:all 0.15s;
+}
+.pub-link.paper  { background:rgba(88,166,255,0.1);  color:var(--accent);  border:1px solid rgba(88,166,255,0.25); }
+.pub-link.data   { background:rgba(63,185,80,0.1);   color:var(--accent2); border:1px solid rgba(63,185,80,0.25); }
+.pub-link.code   { background:rgba(247,129,102,0.1); color:var(--accent3); border:1px solid rgba(247,129,102,0.25); }
+.pub-link.paper:hover  { background:rgba(88,166,255,0.2); }
+.pub-link.data:hover   { background:rgba(63,185,80,0.2); }
+.pub-link.code:hover   { background:rgba(247,129,102,0.2); }
+
+/* ===================== TUTORIALS ===================== */
+.tut-grid { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
+.tut-card {
+  background:var(--bg2); border:1px solid var(--border);
+  border-radius:10px; padding:1.4rem;
+  text-decoration:none; transition:all 0.2s; display:block;
+}
+.tut-card:hover { border-color:var(--accent); transform:translateY(-2px); box-shadow:0 6px 20px var(--shadow); }
+.tut-icon { font-size:1.7rem; margin-bottom:0.7rem; }
+.tut-title { font-weight:600; font-size:0.93rem; color:var(--text); margin-bottom:0.3rem; }
+.tut-desc { color:var(--text2); font-size:0.81rem; line-height:1.6; }
+.tut-badge {
+  display:inline-block; margin-top:0.6rem;
+  font-size:0.68rem; font-weight:600; text-transform:uppercase; letter-spacing:0.05em;
+  padding:0.15rem 0.5rem; border-radius:4px;
+  background:rgba(247,129,102,0.1); color:var(--accent3);
+  border:1px solid rgba(247,129,102,0.25);
+}
+
+/* ===================== FOOTER ===================== */
+footer {
+  border-top:1px solid var(--border);
+  padding:2rem; text-align:center;
+  color:var(--text3); font-size:0.78rem;
+  transition:var(--transition);
+}
+footer a { color:var(--text3); }
+
+/* ===================== SIDE DOTS ===================== */
+.toc {
+  position:fixed; right:1.2rem; top:50%; transform:translateY(-50%);
+  display:flex; flex-direction:column; gap:0.5rem; z-index:50;
+}
+.toc-dot {
+  width:6px; height:6px; border-radius:50%;
+  background:var(--border); transition:all 0.3s; cursor:pointer;
+  display:block; border:none;
+}
+.toc-dot.active { background:var(--accent); transform:scale(1.6); }
+.toc-dot:hover  { background:var(--accent); }
+
+/* ===================== RESPONSIVE ===================== */
+@media(max-width:720px){
+  .hero { grid-template-columns:1fr; }
+  .hero-photo-col { order:-1; align-items:flex-start; flex-direction:row; flex-wrap:wrap; }
+  .avatar-wrap { width:120px; height:120px; }
+  .stats { flex-direction:row; flex-wrap:wrap; }
+  .stat-row { flex:1; min-width:120px; }
+  .exp-item { grid-template-columns:1fr; }
+  .exp-item::before { display:none; }
+  .exp-date { text-align:left; padding-top:0; }
+  .tut-grid { grid-template-columns:1fr; }
+  .pub-card { grid-template-columns:1fr; }
+  .pub-img { display:none; }
+  .toc { display:none; }
+}
+</style>
+</head>
+<body>
+
+<!-- ===== NAV ===== -->
+<nav>
+  <a href="#about" class="nav-brand">Ashok K. Sharma</a>
+  <div class="nav-right">
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#publications">Publications</a>
+      <a href="#tutorials">Tutorials</a>
+    </div>
+
+    <!-- Theme Picker -->
+    <div class="theme-picker" id="themePicker">
+      <button class="theme-btn" onclick="document.getElementById('themePicker').classList.toggle('open')">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+        Theme
+      </button>
+      <div class="theme-dropdown">
+        <div class="theme-option active" onclick="setTheme('dark')" data-t="dark">
+          <div class="theme-swatch" style="background:#161b22"></div> Dark
+        </div>
+        <div class="theme-option" onclick="setTheme('light')" data-t="light">
+          <div class="theme-swatch" style="background:#f6f8fa;border-color:#d0d7de"></div> Light
+        </div>
+        <div class="theme-option" onclick="setTheme('sepia')" data-t="sepia">
+          <div class="theme-swatch" style="background:#ede6d9"></div> Sepia
+        </div>
+        <div class="theme-option" onclick="setTheme('ocean')" data-t="ocean">
+          <div class="theme-swatch" style="background:#0d1f3c"></div> Ocean
+        </div>
+        <div class="theme-option" onclick="setTheme('forest')" data-t="forest">
+          <div class="theme-swatch" style="background:#121f14"></div> Forest
+        </div>
+        <div class="theme-option" onclick="setTheme('rose')" data-t="rose">
+          <div class="theme-swatch" style="background:#ffeef2"></div> Rose
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- Side nav dots -->
+<div class="toc">
+  <a href="#about"        class="toc-dot active" title="About"></a>
+  <a href="#experience"   class="toc-dot" title="Experience"></a>
+  <a href="#publications" class="toc-dot" title="Publications"></a>
+  <a href="#tutorials"    class="toc-dot" title="Tutorials"></a>
+</div>
+
+<main>
+
+<!-- ===== HERO ===== -->
+<div id="about" class="hero">
+  <div class="hero-text">
+    <div class="hero-subtitle">Bioinformatics Scientist · AI/ML · Multi-Omics</div>
+    <h1>Ashok K. Sharma</h1>
+
+    <p class="hero-bio">
+      Bioinformatics Scientist at <a href="https://www.cedars-sinai.org" target="_blank">Cedars-Sinai Medical Center</a>,
+      focusing on the analysis and integration of multi-omics, single-cell, and spatial datasets to understand
+      disease mechanisms, particularly in Crohn's disease. My work spans host-microbiome interactions,
+      microbial co-localization, gene regulation, and immune profiling using high-dimensional data,
+      including imaging mass cytometry.
+    </p>
+    <p class="hero-bio">
+      Previously Scientist-II, Computational Biology at <a href="https://www.takeda.com" target="_blank">Takeda Pharmaceuticals</a>,
+      San Diego, leveraging AI/ML for biomarker discovery and drug safety. Postdoctoral training at
+      <a href="https://twin-cities.umn.edu" target="_blank">University of Minnesota</a> studying microbiome-host
+      interactions. PhD from <a href="https://www.iiserb.ac.in" target="_blank">IISER Bhopal</a>.
+    </p>
+
+    <div class="hero-links">
+      <a href="data/AshokSharma-CV.pdf" target="_blank">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        Resume
+      </a>
+      <a href="https://www.linkedin.com/in/sharma-ak/" target="_blank">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        LinkedIn
+      </a>
+      <a href="mailto:ashoks773@gmail.com">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        Email
+      </a>
+      <a href="https://scholar.google.com/citations?user=zm75iYMAAAAJ&hl=en" target="_blank">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M5.242 13.769L0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269z"/><path d="M12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"/></svg>
+        Google Scholar
+      </a>
+      <a href="https://github.com/ashoks773" target="_blank">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+        GitHub
+      </a>
+    </div>
+
+    <div class="interests">
+      <span class="interest-tag">Multi-Omics Integration</span>
+      <span class="interest-tag">Single-Cell Genomics</span>
+      <span class="interest-tag">Spatial Transcriptomics</span>
+      <span class="interest-tag">Host-Microbiome Interactions</span>
+      <span class="interest-tag">AI/ML in Bioinformatics</span>
+      <span class="interest-tag">Inflammatory Bowel Disease</span>
+      <span class="interest-tag">Drug Safety Informatics</span>
+    </div>
+  </div>
+
+  <div class="hero-photo-col">
+    <div class="avatar-wrap">
+      <div class="avatar-inner">
+        <img src="images/AshokSharma.jpg" alt="Ashok K. Sharma"
+          onerror="this.style.display='none';this.parentElement.innerHTML='AS'">
+      </div>
+    </div>
+    <div class="stats">
+      <div class="stat-row"><span class="stat-lbl">Publications</span><span class="stat-val">28</span></div>
+      <div class="stat-row"><span class="stat-lbl">Research Years</span><span class="stat-val">10+</span></div>
+      <div class="stat-row"><span class="stat-lbl">PhD</span><span class="stat-val" style="font-size:0.72rem">IISER Bhopal</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== EXPERIENCE ===== -->
+<section id="experience">
+  <div class="section-header">
+    <h2 class="section-title">Experience</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="timeline">
+
+    <div class="exp-item">
+      <div class="exp-date">2022 —<br>Present</div>
+      <div class="exp-body">
+        <div class="exp-role">Bioinformatics Scientist</div>
+        <a href="https://www.cedars-sinai.org" class="exp-org" target="_blank">Cedars-Sinai Medical Center</a>
+        <div class="exp-desc">Analysis and integration of multi-omics, single-cell, and spatial datasets to understand disease mechanisms in Crohn's disease. Work spans host-microbiome interactions, microbial co-localization, gene regulation, immune profiling using imaging mass cytometry, and identification of novel biomarkers and therapeutic targets for inflammatory bowel diseases.</div>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-date">2020 —<br>2022</div>
+      <div class="exp-body">
+        <div class="exp-role">Scientist-II, Computational Biology</div>
+        <a href="https://www.takeda.com" class="exp-org" target="_blank">Takeda Pharmaceuticals, San Diego</a>
+        <div class="exp-desc">Global Drug Safety Research Evaluation (DSRE) team. Leveraged AI/ML approaches for biomarker discovery, developed splicing analysis pipelines for oligonucleotide projects, and enhanced transcriptomic data analysis pipelines to support drug discovery and predictive safety assessment.</div>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-date">2018 —<br>2020</div>
+      <div class="exp-body">
+        <div class="exp-role">Postdoctoral Associate</div>
+        <a href="https://www.cedars-sinai.org" class="exp-org" target="_blank">Cedars-Sinai Medical Center</a>
+        <div class="exp-desc">SARS-CoV-2 persistence in the GI tract, imaging mass cytometry for bacterial co-localization in Crohn's disease, human milk oligosaccharides and immune response, and quantification of bacterial growth rates (PTRs) from metagenomic datasets.</div>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-date">2015 —<br>2018</div>
+      <div class="exp-body">
+        <div class="exp-role">Postdoctoral Associate</div>
+        <a href="https://twin-cities.umn.edu" class="exp-org" target="_blank">University of Minnesota Twin Cities</a>
+        <div class="exp-desc">Microbiome-host interactions in animal and human models under diverse physiological conditions. Projects included primate gut bacteriome and mycobiome, gut microbial functional adaptations, oral microbiome in HNSCC and dental caries, beef cattle rumen microbiome, and horse gut microbiome responses.</div>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-date">2009 —<br>2015</div>
+      <div class="exp-body">
+        <div class="exp-role">PhD, Computational Biology</div>
+        <a href="https://www.iiserb.ac.in" class="exp-org" target="_blank">IISER Bhopal — Metagenomics and Systems Biology Lab</a>
+        <div class="exp-desc">Funded by MHRD. Developed computational tools for metagenomics annotation (WOODS, 16S Classifier), machine learning prediction of biomolecule function (ToxiM, BioFin, HyPe), and microbial drug metabolism (DrugBug).</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== PUBLICATIONS ===== -->
+<section id="publications">
+  <div class="section-header">
+    <h2 class="section-title">Publications</h2>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="pub-filters">
+    <button class="pub-filter active" onclick="filterPubs('all',this)">All (28)</button>
+    <button class="pub-filter" onclick="filterPubs('2024',this)">2024</button>
+    <button class="pub-filter" onclick="filterPubs('2023',this)">2023</button>
+    <button class="pub-filter" onclick="filterPubs('2022',this)">2022</button>
+    <button class="pub-filter" onclick="filterPubs('2021',this)">2021</button>
+    <button class="pub-filter" onclick="filterPubs('2020',this)">2020</button>
+    <button class="pub-filter" onclick="filterPubs('2019',this)">2019</button>
+    <button class="pub-filter" onclick="filterPubs('old',this)">2015–2018</button>
+  </div>
+
+  <div class="pub-grid" id="pubGrid">
+
+    <!-- 2024 -->
+    <div class="pub-card" data-year="2024">
+      <div class="pub-img"><img src="images/seizure.jpg" alt="seizure" onerror="this.parentElement.style.background='var(--surface)'"></div>
+      <div class="pub-body">
+        <div class="pub-title"><a href="https://academic.oup.com/toxsci/advance-article/doi/10.1093/toxsci/kfae148/7921427" target="_blank">In vitro human ion channel assays predictive of drug-induced seizure</a></div>
+        <div class="pub-authors">Jennifer D Cohen, Dahea You, <strong>Ashok K. Sharma</strong>, Takafumi Takai, Hideto Hara, Vicencia T Sales, Li Wang, Tomoya Yukawa, Beibei Cai</div>
+        <div class="pub-meta"><span class="pub-journal">Toxicological Sciences</span><span class="pub-year">2024</span></div>
+        <div class="pub-abstract">Evaluated an in vitro panel of 11 ion channel targets linked to seizure risk using automated electrophysiology, identifying Cav2.1 as the most predictive target for seizurogenic activity.</div>
+        <div class="pub-links">
+          <a class="pub-link paper" href="https://academic.oup.com/toxsci/advance-article/doi/10.1093/toxsci/kfae148/7921427" target="_blank">📄 Paper</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2023 -->
+    <div class="pub-card" data-year="2023">
+      <div class="pub-img"><img src="images/wilson.jpg" alt="" onerror="this.parentElement.style.background='var(--surface)'"></div>
+      <div class="pub-body">
+        <div class="pub-title"><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10497250/" target="_blank">The role of the intestine in metabolic dysregulation in murine Wilson disease</a></div>
+        <div class="pub-authors">Gaurav V Sarode, Tagreed Mazi, Kari Neier, Shibata Noreene M, Guillaume Jospin, <strong>Ashok K. Sharma</strong>, Shyam More, Maneesh Dave, Valentina Medici, et al.</div>
+        <div class="pub-meta"><span class="pub-journal">Hepatology Communications</span><span class="pub-year">2023</span></div>
+        <div class="pub-abstract">Intestine-specific ATP7B deficiency affected both intestinal and systemic response to a high-fat challenge but not the microbiome profile at early stages.</div>
+        <div class="pub-links">
+          <a class="pub-link paper" href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10497250/" target="_blank">📄 Paper</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="pub-card" data-year="2023">
+      <div class="pub-img"><img src="images/lacto.jpg" alt="" onerror="this.parentElement.style.background='var(--surface)'"></div>
+      <div class="pub-body">
+        <div class="pub-title"><a href="https://www.cambridge.org/core/journals/gut-microbiome/article/regular-consumption-of-lactofermented-vegetables-has-greater-effects-on-the-gut-metabolome-compared-with-the-microbiome/A6692CAC12EC517CA9545DFDE577C1D4" target="_blank">Regular consumption of lacto-fermented vegetables has greater effects on the gut metabolome compared with the microbiome</a></div>
+        <div class="pub-authors">Kylene Guse, <strong>Ashok K. Sharma</strong>, Emily Weyenberg, Samuel Davison, Yiwei Ma, Abigail Johnson, Chi Chen, Andres Gomez</div>
+        <div class="pub-meta"><span class="pub-journal">Gut Microbiome</span><span class="pub-year">2023</span></div>
+        <div class="pub-abstract">Minor microbiome changes but significant alterations in the faecal metabolome, including increased abundances of butyrate, acetate, and valerate after lacto-fermented vegetable consumption.</div>
+        <div class="pub-links">
+          <a class="pub-link paper" href="https://www.cambridge.org/core/journals/gut-microbiome/article/regular-consumption-of-lactofermented-vegetables-has-greater-effects-on-the-gut-metabolome-compared-with-the-microbiome/A6692CAC12EC517CA9545DFDE577C1D4" target="_blank">📄 Paper</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="pub-card" data-year="2023">
+      <div class="pub-img"><img src="images/redwheat.jpg" alt="" onerror="this.parentElement.style.background='var(--surface)'"></div>
+      <div class="pub-body">
+        <div class="pub-title"><a href="https://pubs.rsc.org/en/content/articlelanding/2023/fo/d3fo03438k/unauth" target="_blank">Effect of red wheat, aleurone, and testa layers on colon cancer biomarkers, nitrosative stress, and gut microbiome composition in rats</a></div>
+        <div class="pub-authors">Chelsey Fiecke, Senay Simsek, <strong>Ashok K. Sharma</strong>, Daniel D Gallaher</div>
+        <div class="pub-meta"><span class="pub-journal">Food & Function</span><span class="pub-year">2023</span></div>
+        <div class="pub-abstract">Red wheat diets reduced biomarkers of cancer risk and altered gut microbiota composition, suggesting the potential roles of dietary fiber and phenolics in reducing colon cancer risk.</div>
+        <div class="pub-links">
+          <a class="pub-link paper" href="https://pubs.rsc.org/en/content/articlelanding/2023/fo/d3fo03438k/unauth" target="_blank">📄 Paper</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2022 -->
+    <div class="pub-card" data-year="2022">
+      <div class="pub-img"><img src="images/dental.jpg" alt="" onerror="this.parentElement.style.background='var(--surface)'"></div>
+      <div class="pub-body">
+        <div class="pub-title"><a href="https://www.tandfonline.com/doi/full/10.1080/20002297.2022.2123624" target="_blank">Functional signatures of ex-vivo dental caries onset</a></div>
+        <div class="pub-authors">Dina Moussa, <strong>Ashok K. Sharma</strong>, Tamer Mansour, Bruce Witthuhn, Jorge Perdigao Henriques, Joel Rudney, Conrado Aparicio Badenas, Andres Gomez</div>
+        <div class="pub-meta"><span class="pub-journal">Journal of Oral Microbiology</span><span class="pub-year">2022</span></div>
+        <div class="pub-abstract">Optimized ex-vivo model integrated with advanced imaging and multi-omics libraries to detect functional signatures associated with dental caries.</div>
+        <div class="pub-links">
+          <a class="pub-link data" href="https://www.ncbi.nlm.nih.gov/sra/PRJNA668810" target="_blank">💾 Data</a>
+          <a class="pub-link paper" href="https://www.tandfonline.com/doi/full/10.1080/20002297.2022.2123624" target="_blank">📄 Paper</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="pub-card" data-year="2022">
+      <div class="pub-img"><img src="images/covid.jpg" alt="" onerror="this.parentElement.style.background='var(--surface)'"></div>
+      <div class="pub-body">
+        <div class="pub-title"><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9212536/" target="_blank">In-Patient Antibiotic Exposure Promotes SARS-CoV-2 Persistence in the GI Tract in Covid-19 Admitted Patients</a></div>
+        <div class="pub-authors"><strong>Ashok K. Sharma</strong>, Anthony Martin, Jacob Moskowitz, Stephanie Bora, Katherine Lagree, Pieter Dorrestein, David Underhill, Rob Knight, Peter Chen, Suzanne Devkota</div>
+        <div class="pub-meta"><span class="pub-journal">Gastroenterology</span><span class="pub-year">2022</span><span class="pub-award">🏆 Oral Presentation</span></div>
+        <div class="pub-abstract">Heavy-dose antibiotic regimen in COVID-19 in-patients is associated with viral persistence of SARS-CoV-2 in the GI tract, suggesting an important role of the gut microbiome in excluding SARS-CoV-2 by competitive exclusion or promoting interferon responses.</div>
+        <div class="pub-links">
+          <a class="pub-link data" href="https://qiita.ucsd.edu/study/description/13430" target="_blank">💾 Data</a>
+          <a class="pub-link paper" href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9212536/pdf/main.pdf" target="_blank">📄 Abstract</a>
+          <a class="pub-link code" href="data/DDW_Ashok_2022.pdf" target="_blank">🎤 Slides</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="pub-card" data-year="2022">
+      <div class="pub-img"><img src="images/hmo.jpg" alt="" onerror="this.parentElement.style.background='var(--surface)'"></div>
+      <div class="pub-body">
+        <div class="pub-title"><a href="https://www.frontiersin.org/articles/10.3389/fimmu.2022.907529/full" target="_blank">Human Milk Oligosaccharides Impact Cellular and Inflammatory Gene Expression and Immune Response</a></div>
+        <div class="pub-authors">Fernanda Rosa, <strong>Ashok K. Sharma</strong>, Manoj Gurung, David Casero, Katelin Matazel, Lars Bode, Christy Simecka, Ahmed Elolimy, Laxmi Yeruva, et al.</div>
+        <div class="pub-meta"><span class="pub-journal">Frontiers in Immunology</span><span class="pub-year">2022</span></div>
+        <div class="pub-abstract">HMO administration promotes immunoregulatory effects at the gene expression level in the absence of gut microbiota.</div>
+        <div class="pub-links">
+          <a class="pub-link data" href="https://www.ncbi.nlm.nih.gov/bioproject/814680" target="_blank">💾 Data</a>
+          <a class="pub-link paper" href="https://www.frontiersin.org/articles/10.3389/fimmu.2022.907529/full" target="_blank">📄 Paper</a>
+          <a class="pub-link code" href="https://github.com/ashoks773/Liner_mixed_model_RNAseq" target="_blank">💻 Code</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="pub-card" data-year="2022">
+      <div class="pub-img"><img src="images/zinc.jpg" alt="" onerror="this.parentElement.style.background='var(--surface)'"></div>
+      <div class="pub-body">
+        <div class="pub-title"><a href="https://www.cambridge.org/core/journals/journal-of-nutritional-science/article/dietary-zinc-restriction-affects-the-expression-of-genes-related-to-immunity-and-stress-response-in-the-small-intestine-of-pigs/657F393613FF6797305C92CE8BEF6B0B" target="_blank">Dietary zinc restriction affects the expression of genes related to immunity and stress response in the small intestine of pigs</a></div>
+        <div class="pub-authors">Ramya Lekha Medida, <strong>Ashok K. Sharma</strong>, Yue Guo, Lee Johnston, Pedro Urriola, Andres Gomez, Milena Saqui Salces</div>
+        <div class="pub-meta"><span class="pub-journal">Journal of Nutritional Science</span><span class="pub-year">2022</span></div>
+        <div class="pub-abstract">Investigated intestinal responses to nutritional zinc restriction and supplementation that could influence overall health and indicate early changes in response to zinc restriction.</div>
+        <div class="pub-links">
+          <a class="pub-link data" href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE181343" target="_blank">💾 Data</a>
+          <a class="pub-link paper" href="https://www.cambridge.org/core/journals/journal-of-nutritional-science/article/dietary-zinc-restriction-affects-the-expression-of-genes-related-to-immunity-and-stress-response-in-the-small-intestine-of-pigs/657F393613FF6797305C92CE8BEF6B0B" target="_blank">📄 Paper</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="pub-card" data-year="2022">
+      <div class="pub-img"><img src="images/tobacco.jpg" alt="" onerror="this.parentElement.style.background='var(--surface)'"></div>
+      <div class="pub-body">
+        <div class="pub-title"><a href="https://www.frontiersin.org/articles/10.3389/fcimb.2022.841465/full" target="_blank">Assessing the Effect of Smokeless Tobacco Consumption on Oral Microbiome in Healthy and Oral Cancer Patients</a></div>
+        <div class="pub-authors">Rituja Saxena, Vishnu Prasoodanan, Sonia Vidushi Gupta, Sudheer Gupta, Prashant Waiker, Atul Samaiya, <strong>Ashok K. Sharma</strong>, Vineet K. Sharma</div>
+        <div class="pub-meta"><span class="pub-journal">Frontiers in Cellular and Infection Microbiology</span><span class="pub-year">2022</span></div>
+        <div class="pub-abstract">Profiled oral microbiome of healthy and oral cancer patients to decipher microbial dysbiosis due to smokeless tobacco-based products and revealed the tobacco-associated microbiome.</div>
+        <div class="pub-links">
+          <a class="pub-link data" href="https://www.ncbi.nlm.nih.gov/bioproject/?term=PRJNA789915" target="_blank">💾 Data</a>
+          <a class="pub-link paper" href="https://www.frontiersin.org/articles/10.3389/fcimb.2022.841465/full" target="_blank">📄 Paper</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="pub-card" data-year="2022">
+      <div class="pub-img"><img src="images/cattle.jpg" alt="" onerror="this.parentElement.style.background='var(--surface)'"></div>
+      <div class="pub-body">
+        <div class="pub-title"><a href="https://link.springer.com/article/10.1186/s42523-022-00175-y" target="_blank">Microbiome network traits in the rumen predict average daily gain in beef cattle under different backgrounding systems</a></div>
+        <div class="pub-authors">Bobwealth Oakina Omontese, <strong>Ashok K. Sharma</strong>, Samuel Davison, Emily Jacobson, Alfredo DiCostanzo, Megan Webb, Andres Gomez</div>
+        <div class="pub-meta"><span class="pub-journal">Animal Microbiome</span><span class="pub-year">2022</span></div>
+        <div class="pub-abstract">Longitudinal study assessing how backgrounding affects rumen bacterial communities and average daily gain in beef cattle.</div>
+        <div class="pub-links">
+          <a class="pub-link data" href="https://www.ncbi.nlm.nih.gov/bioproject/?term=PRJNA763290" target="_blank">💾 Data</a>
+          <a class="pub-link paper" href="https://link.springer.com/article/10.1186/s42523-022-00175-y" target="_blank">📄 Paper</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="pub-card" data-year="2022">
+      <div class="pub-img"><img src="images/mycobiome.jpg" alt="" onerror="this.parentElement.style.background='var(--surface)'"></div>
+      <div class="pub-body">
+        <div class="pub-title"><a href="https://www.nature.com/articles/s41522-022-00274-3" target="_blank">The primate gut mycobiome-bacteriome interface is impacted by environmental and subsistence factors</a></div>
+        <div class="pub-authors"><strong>Ashok K. Sharma</strong>, Samuel Davison, Barbora Pafco, Jonathan B. Clayton, Jessica Rothman, Matthew McLennan, Marie Cibot, Terence Fuh, Roman Vodicka, Carolyn Jost Robinson, Klara Petrzelkova, Andres Gomez</div>
+        <div class="pub-meta"><span class="pub-journal">npj Biofilms and Microbiomes</span><span class="pub-year">2022</span></div>
+        <div class="pub-abstract">Strong influence of host-ecological factors including diet and lifestyle in shaping the fungal community composition in the primate gut, in contrast with the bacterial fraction which is more influenced by host genetics.</div>
+        <div class="pub-links">
+          <a class="pub-link data" href="https://www.ncbi.nlm.nih.gov/bioproject/?term=PRJNA686661" target="_blank">💾 Data</a>
+          <a class="pub-link paper" href="https://www.nature.com/articles/s41522-022-00274-3" target="_blank">📄 Paper</a>
+          <a class="pub-link code" href="https://github.com/ashoks773/mycobiome_bacteriome" target="_blank">💻 Code</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2021 -->
+    <div class="pub-card" data-year="2021">
+      <div class="pub-img"><img src="images/prevotella.jpg" alt="" onerror="this.parentElement.style.background='var(--surface)'"></div>
+      <div class="pub-body">
+        <div class="pub-title"><a href="https://www.nature.com/articles/s41522-021-00248-x" target="_blank">Western and non-western gut microbiomes reveal new roles of Prevotella in carbohydrate metabolism and mouth–gut axis</a></div>
+        <div class="pub-authors">Vishnu Prasoodanan, <strong>Ashok K. Sharma</strong>, Shruti Mahajan, Darshan Dhakan, Joy Scaria, Vineet K. Sharma</div>
+        <div class="pub-meta"><span class="pub-journal">npj Biofilms and Microbiomes</span><span class="pub-year">2021</span></div>
+        <div class="pub-abstract">Population-wide analysis on 586 healthy samples from western and non-western populations including the largest Indian cohort of 200 samples, and 189 IBD samples from western populations.</div>
+        <div class="pub-links">
+          <a class="pub-link data" href="https://www.ncbi.nlm.nih.gov/bioproject/?term=PRJNA397112" target="_blank">💾 Data</a>
+          <a class="pub-link paper" href="https://www.nature.com/articles/s41522-021-00248-x" target="_blank">📄 Paper</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2020 -->
+    <div class="pub-card" data-year="2020">
+      <div class="pub-img"><img src="images/parallel.jpg" alt="" onerror="this.parentElement.style.background='var(--surface)'"></div>
+      <div class="pub-body">
+        <div class="pub-title"><a href="https://journals.asm.org/doi/full/10.1128/mSystems.00815-20" target="_blank">Traditional Human Populations and Nonhuman Primates Show Parallel Gut Microbiome Adaptations to Analogous Ecological Conditions</a></div>
+        <div class="pub-authors"><strong>Ashok K. Sharma</strong>, Klara Petrzelkova, Barbora Pafco, Carolyn Jost Robinson, Terence Fuh, Brenda Anne Wilson, Rebecca M. Stumpf, Manolito Torralba, Ran Blekhman, Karen E. Nelson, Steven Leigh, Andres Gomez</div>
+        <div class="pub-meta"><span class="pub-journal">mSystems</span><span class="pub-year">2020</span></div>
+        <div class="pub-abstract">Highlights parallel gut microbiome traits in human and nonhuman primates depending on subsistence strategy — results indicate discordance between gut microbiome composition and evolutionary history.</div>
+        <div class="pub-links">
+          <a class="pub-link data" href="https://www.ncbi.nlm.nih.gov/bioproject/?term=PRJNA635116" target="_blank">💾 Data</a>
+          <a class="pub-link paper" href="https://journals.asm.org/doi/full/10.1128/mSystems.00815-20" target="_blank">📄 Paper</a>
+          <a class="pub-link code" href="https://github.com/ashoks773/Primates-Gut-Metagenome" target="_blank">💻 Code</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="pub-card" data-year="2020">
+      <div class="pub-img"><img src="images/horse.jpg" alt="" onerror="this.parentElement.style.background='var(--surface)'"></div>
+      <div class="pub-body">
+        <div class="pub-title"><a href="https://www.sciencedirect.com/science/article/pii/S073708062030397X" target="_blank">The Horse Gut Microbiome Responds in a Highly Individualized Manner to Forage Lignification</a></div>
+        <div class="pub-authors">Andres Gomez, <strong>Ashok K. Sharma</strong>, Amanda Grev, Craig C Sheaffer, Krishona Martinson</div>
+        <div class="pub-meta"><span class="pub-journal">Journal of Equine Veterinary Science</span><span class="pub-year">2020</span></div>
+        <div class="pub-abstract">Horse gut microbiome responds in an individualized manner to changes in acid detergent lignin in alfalfa hay, potentially impacting several feed digestibility characteristics.</div>
+        <div class="pub-links">
+          <a class="pub-link data" href="https://www.ncbi.nlm.nih.gov/bioproject/?term=PRJNA668801" target="_blank">💾 Data</a>
+          <a class="pub-link paper" href="https://www.sciencedirect.com/science/article/pii/S073708062030397X" target="_blank">📄 Paper</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="pub-card" data-year="2020">
+      <div class="pub-img"><img src="images/molib.jpg" alt="" onerror="this.parentElement.style.background='var(--surface)'"></div>
+      <div class="pub-body">
+        <div class="pub-title"><a href="https://www.sciencedirect.com/science/article/pii/S088875431930549X" target="_blank">Molib: A machine learning based classification tool for the prediction of biofilm inhibitory molecules</a></div>
+        <div class="pub-authors">Gopal Narayan Srivastava, Aditya Malwe, <strong>Ashok K. Sharma</strong>, Vibhuti Shastri, Keshav Hibare, Vineet K. Sharma</div>
+        <div class="pub-meta"><span class="pub-journal">Genomics</span><span class="pub-year">2020</span></div>
+        <div class="pub-abstract">Developed the 'Molib' tool to predict the biofilm inhibitory activity of small molecules using machine learning.</div>
+        <div class="pub-links">
+          <a class="pub-link paper" href="https://www.sciencedirect.com/science/article/pii/S088875431930549X" target="_blank">📄 Paper</a>
+          <a class="pub-link code" href="http://metagenomics.iiserb.ac.in/Molib/" target="_blank">🌐 Web Tool</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="pub-card" data-year="2020">
+      <div class="pub-img"><img src="images/hnscc.jpg" alt="" onerror="this.parentElement.style.background='var(--surface)'"></div>
+      <div class="pub-body">
+        <div class="pub-title"><a href="https://aacrjournals.org/cancerpreventionresearch/article/13/5/463/47400" target="_blank">Oral Microbiome Profiling in Smokers with and without Head and Neck Cancer Reveals Variations Between Health and Disease</a></div>
+        <div class="pub-authors"><strong>Ashok K. Sharma</strong>, William Debusk, Irina Stepanov, Andres Gomez, Samir Khariwala</div>
+        <div class="pub-meta"><span class="pub-journal">Cancer Prevention Research</span><span class="pub-year">2020</span></div>
+        <div class="pub-abstract">Characterized oral microbiome in smokers with and without HNSCC using 16S rRNA MiSeq sequencing to determine microbial associations with oral/head and neck cancer among tobacco users.</div>
+        <div class="pub-links">
+          <a class="pub-link data" href="https://www.ncbi.nlm.nih.gov/sra/PRJNA668810" target="_blank">💾 Data</a>
+          <a class="pub-link paper" href="https://aacrjournals.org/cancerpreventionresearch/article/13/5/463/47400" target="_blank">📄 Paper</a>
+          <a class="pub-link code" href="https://github.com/ashoks773/Oral-microbiome-16S" target="_blank">💻 Code</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2019 -->
+    <div class="pub-card" data-year="2019">
+      <div class="pub-img"><img src="images/flavonifractor.jpg" alt="" onerror="this.parentElement.style.background='var(--surface)'"></div>
+      <div class="pub-body">
+        <div class="pub-title"><a href="https://journals.asm.org/doi/full/10.1128/mSystems.00438-19" target="_blank">Association of Flavonifractor plautii, a Flavonoid-Degrading Bacterium, with the Gut Microbiome of Colorectal Cancer Patients in India</a></div>
+        <div class="pub-authors">Ankit Gupta, Darshan Dhakan, Abhijit Maji, Rituja Saxena, Vishnu Prasoodanan, Shruti Mahajan, Joby Pulikkan, Kurian Jacob, Andres Gomez, Joy Scaria, Katherine R. Amato, <strong>Ashok K. Sharma</strong>, Vineet K. Sharma</div>
+        <div class="pub-meta"><span class="pub-journal">mSystems</span><span class="pub-year">2019</span></div>
+        <div class="pub-abstract">Novel insights on the CRC-associated microbiome of a unique Indian cohort, revealing the potential role of a new bacterium in CRC and cohort-specific biomarkers for noninvasive diagnosis.</div>
+        <div class="pub-links">
+          <a class="pub-link data" href="https://www.ncbi.nlm.nih.gov/bioproject/?term=PRJNA531273" target="_blank">💾 Data</a>
+          <a class="pub-link paper" href="https://journals.asm.org/doi/full/10.1128/mSystems.00438-19" target="_blank">📄 Paper</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="pub-card" data-year="2019">
+      <div class="pub-img"><img src="images/plasticity.jpg" alt="" onerror="this.parentElement.style.background='var(--surface)'"></div>
+      <div class="pub-body">
+        <div class="pub-title"><a href="https://journals.asm.org/doi/full/10.1128/mSphere.00271-19" target="_blank">Plasticity in the Human Gut Microbiome Defies Evolutionary Constraints</a></div>
+        <div class="pub-authors">Andres Gomez, <strong>Ashok K. Sharma*</strong>, Elizabeth K Mallott, Klara Petrzelkova, Carolyn Jost Robinson, Carl J Yeoman, Franck Carbonero, Barbora Pafco, Jessica Rothman, et al.</div>
+        <div class="pub-meta"><span class="pub-journal">mSphere</span><span class="pub-year">2019</span></div>
+        <div class="pub-abstract">Discordance between gut microbiome composition and evolutionary history in primates, calling into question previous notions about host genetic control of the primate gut microbiome.</div>
+        <div class="pub-links">
+          <a class="pub-link paper" href="https://journals.asm.org/doi/full/10.1128/mSphere.00271-19" target="_blank">📄 Paper</a>
+          <a class="pub-link code" href="https://github.com/ashoks773/Primates-GutMicrobiome-16S" target="_blank">💻 Code</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="pub-card" data-year="2019">
+      <div class="pub-img"><img src="images/fecalRNA.jpg" alt="" onerror="this.parentElement.style.background='var(--surface)'"></div>
+      <div class="pub-body">
+        <div class="pub-title"><a href="https://bmcgenomics.biomedcentral.com/articles/10.1186/s12864-019-5813-z" target="_blank">Mapping gastrointestinal gene expression patterns in wild primates and humans via fecal RNA-seq</a></div>
+        <div class="pub-authors"><strong>Ashok K. Sharma</strong>, Barbora Pafco, Klara Vlckova, Barbora Cervena, Jakub Kreisinger, Samuel Davison, Karen Beeri, Terence Fuh, Steven Leigh, Ran Blekhman, Klara Petrzelkova, Andres Gomez</div>
+        <div class="pub-meta"><span class="pub-journal">BMC Genomics</span><span class="pub-year">2019</span></div>
+        <div class="pub-abstract">Fecal RNA-seq targeting gastrointestinal epithelial cells can evaluate primate intestinal physiology and gut gene regulation in samples obtained in challenging conditions in situ.</div>
+        <div class="pub-links">
+          <a class="pub-link data" href="https://www.ncbi.nlm.nih.gov/bioproject/?term=PRJNA541574" target="_blank">💾 Data</a>
+          <a class="pub-link paper" href="https://bmcgenomics.biomedcentral.com/articles/10.1186/s12864-019-5813-z" target="_blank">📄 Paper</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="pub-card" data-year="2019">
+      <div class="pub-img"><img src="images/gorilla.jpg" alt="" onerror="this.parentElement.style.background='var(--surface)'"></div>
+      <div class="pub-body">
+        <div class="pub-title"><a href="https://onlinelibrary.wiley.com/doi/full/10.1002/ajpa.23842" target="_blank">Gut microbiome composition of wild western lowland gorillas is associated with individual age and sex factors</a></div>
+        <div class="pub-authors">Barbora Pafco, <strong>Ashok K. Sharma*</strong>, Klara Petrzelkova, Klara Vlckova, Angelique Todd, Carl J Yeoman, Brenda Anne Wilson, Rebecca M. Stumpf, Bryan White, Karen E. Nelson, Steven Leigh, Andres Gomez</div>
+        <div class="pub-meta"><span class="pub-journal">American Journal of Biological Anthropology</span><span class="pub-year">2019</span></div>
+        <div class="pub-abstract">Determined associations between individual age and sex on the diversity and composition of the gut microbiome in wild western lowland gorillas.</div>
+        <div class="pub-links">
+          <a class="pub-link paper" href="https://onlinelibrary.wiley.com/doi/full/10.1002/ajpa.23842" target="_blank">📄 Paper</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="pub-card" data-year="2019">
+      <div class="pub-img"><img src="images/india.jpg" alt="" onerror="this.parentElement.style.background='var(--surface)'"></div>
+      <div class="pub-body">
+        <div class="pub-title"><a href="https://academic.oup.com/gigascience/article/8/3/giz004/5304367" target="_blank">The unique composition of Indian gut microbiome, gene catalogue, and associated fecal metabolome deciphered using multi-omics approaches</a></div>
+        <div class="pub-authors">Darshan Dhakan, Abhijit Maji, <strong>Ashok K. Sharma</strong>, Rituja Saxena, Joby Pulikkan, Tony Grace, Andres Gomez, Joy Scaria, Katherine R. Amato, Vineet K. Sharma</div>
+        <div class="pub-meta"><span class="pub-journal">GigaScience</span><span class="pub-year">2019</span></div>
+        <div class="pub-abstract">Analyzed gut microbiome of 110 healthy individuals from two distinct Indian locations using 16S rRNA, whole-genome shotgun metagenomics, and fecal/serum metabolomics.</div>
+        <div class="pub-links">
+          <a class="pub-link data" href="https://www.ncbi.nlm.nih.gov/bioproject/?term=PRJNA397112" target="_blank">💾 Data</a>
+          <a class="pub-link paper" href="https://academic.oup.com/gigascience/article/8/3/giz004/5304367" target="_blank">📄 Paper</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2015–2018 -->
+    <div class="pub-card" data-year="old">
+      <div class="pub-img"><img src="images/peacock.jpg" alt="" onerror="this.parentElement.style.background='var(--surface)'"></div>
+      <div class="pub-body">
+        <div class="pub-title"><a href="https://www.frontiersin.org/articles/10.3389/fgene.2018.00392/full" target="_blank">Genome Sequence of Peacock Reveals the Peculiar Case of a Glittering Bird</a></div>
+        <div class="pub-authors">Subham K. Jaiswal, Ankit Gupta, Rituja Saxena, Vishnu Prasoodanan, <strong>Ashok K. Sharma</strong>, Parul Mittal, Ankita Roy, Nagarjun Vijay, Vineet K. Sharma</div>
+        <div class="pub-meta"><span class="pub-journal">Frontiers in Genetics</span><span class="pub-year">2018</span></div>
+        <div class="pub-abstract">First genome sequence and comparative analysis of peacock with high quality genomes of chicken, turkey, duck, flycatcher, and zebra finch.</div>
+        <div class="pub-links">
+          <a class="pub-link data" href="https://www.ncbi.nlm.nih.gov/sra/?term=SRP083005" target="_blank">💾 Data</a>
+          <a class="pub-link paper" href="https://www.frontiersin.org/articles/10.3389/fgene.2018.00392/full" target="_blank">📄 Paper</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="pub-card" data-year="old">
+      <div class="pub-img"><img src="images/digoxin.jpg" alt="" onerror="this.parentElement.style.background='var(--surface)'"></div>
+      <div class="pub-body">
+        <div class="pub-title"><a href="https://onlinelibrary.wiley.com/doi/full/10.1002/jcb.26638" target="_blank">Mechanistic and structural insight into promiscuity based metabolism of cardiac drug digoxin by gut microbial enzyme</a></div>
+        <div class="pub-authors">Kundan Kumar, Subham K. Jaiswal, Gaurao Dhoke, Gopal Narayan Srivastava, <strong>Ashok K. Sharma</strong>, Vineet K. Sharma</div>
+        <div class="pub-meta"><span class="pub-journal">Journal of Cellular Biochemistry</span><span class="pub-year">2017</span></div>
+        <div class="pub-abstract">Atomistic details and energy economics of binding and metabolism of Digoxin by the Cgr2 protein of Eggerthella lenta DSM 2243.</div>
+        <div class="pub-links">
+          <a class="pub-link paper" href="https://onlinelibrary.wiley.com/doi/full/10.1002/jcb.26638" target="_blank">📄 Paper</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="pub-card" data-year="old">
+      <div class="pub-img"><img src="images/antiinflam.jpg" alt="" onerror="this.parentElement.style.background='var(--surface)'"></div>
+      <div class="pub-body">
+        <div class="pub-title"><a href="https://translational-medicine.biomedcentral.com/articles/10.1186/s12967-016-1103-6" target="_blank">Prediction of anti-inflammatory proteins/peptides: an insilico approach</a></div>
+        <div class="pub-authors">Sudheer Gupta, <strong>Ashok K. Sharma*</strong>, Vibhuti Shastri, Midhun K. Madhu Dhakan, Vineet K. Sharma</div>
+        <div class="pub-meta"><span class="pub-journal">Journal of Translational Medicine</span><span class="pub-year">2017</span></div>
+        <div class="pub-abstract">Prediction tool for classification of peptides as anti-inflammatory epitopes or non anti-inflammatory epitopes.</div>
+        <div class="pub-links">
+          <a class="pub-link paper" href="https://translational-medicine.biomedcentral.com/articles/10.1186/s12967-016-1103-6" target="_blank">📄 Paper</a>
+          <a class="pub-link code" href="http://metagenomics.iiserb.ac.in/antiinflam/" target="_blank">🌐 Web Tool</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="pub-card" data-year="old">
+      <div class="pub-img"><img src="images/drugbug.jpg" alt="" onerror="this.parentElement.style.background='var(--surface)'"></div>
+      <div class="pub-body">
+        <div class="pub-title"><a href="https://www.nature.com/articles/s41598-017-10203-6" target="_blank">Approach for the prediction of species-specific biotransformation of xenobiotic/drug molecules by the human gut microbiota</a></div>
+        <div class="pub-authors"><strong>Ashok K. Sharma</strong>, Subham K. Jaiswal, Nikhil Chaudhary, Vineet K. Sharma</div>
+        <div class="pub-meta"><span class="pub-journal">Scientific Reports</span><span class="pub-year">2017</span></div>
+        <div class="pub-abstract">DrugBug predicts metabolic enzymes and gut bacterial species that can potentially carry out biotransformation of xenobiotic/drug molecules.</div>
+        <div class="pub-links">
+          <a class="pub-link paper" href="https://www.nature.com/articles/s41598-017-10203-6" target="_blank">📄 Paper</a>
+          <a class="pub-link code" href="http://metagenomics.iiserb.ac.in/drugbug" target="_blank">🌐 Web Tool</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="pub-card" data-year="old">
+      <div class="pub-img"><img src="images/toxim.jpg" alt="" onerror="this.parentElement.style.background='var(--surface)'"></div>
+      <div class="pub-body">
+        <div class="pub-title"><a href="https://www.frontiersin.org/articles/10.3389/fphar.2017.00880/full" target="_blank">ToxiM: A Toxicity Prediction Tool for Small Molecules Developed Using Machine Learning and Chemoinformatics Approaches</a></div>
+        <div class="pub-authors"><strong>Ashok K. Sharma</strong>, Gopal Narayan Srivastava, Ankita Roy, Vineet K. Sharma</div>
+        <div class="pub-meta"><span class="pub-journal">Frontiers in Pharmacology</span><span class="pub-year">2017</span></div>
+        <div class="pub-abstract">Machine-learning based binary classifier for toxicity prediction of molecules, with regression models for CaCo-2 permeability and aqueous solubility.</div>
+        <div class="pub-links">
+          <a class="pub-link paper" href="https://www.frontiersin.org/articles/10.3389/fphar.2017.00880/full" target="_blank">📄 Paper</a>
+          <a class="pub-link code" href="http://metagenomics.iiserb.ac.in/ToxiM/" target="_blank">🌐 Web Tool</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="pub-card" data-year="old">
+      <div class="pub-img"><img src="images/biofin.jpg" alt="" onerror="this.parentElement.style.background='var(--surface)'"></div>
+      <div class="pub-body">
+        <div class="pub-title"><a href="https://www.frontiersin.org/articles/10.3389/fmicb.2016.00949/full" target="_blank">Prediction of Biofilm Inhibiting Peptides: An In silico Approach</a></div>
+        <div class="pub-authors">Sudheer Gupta, <strong>Ashok K. Sharma</strong>, Subham K. Jaiswal, Vineet K. Sharma</div>
+        <div class="pub-meta"><span class="pub-journal">Frontiers in Microbiology</span><span class="pub-year">2016</span></div>
+        <div class="pub-abstract">BioFin: unique computational method for prediction of biofilm inhibiting peptides trained on experimentally validated sequences.</div>
+        <div class="pub-links">
+          <a class="pub-link paper" href="https://www.frontiersin.org/articles/10.3389/fmicb.2016.00949/full" target="_blank">📄 Paper</a>
+          <a class="pub-link code" href="http://metagenomics.iiserb.ac.in/biofin/" target="_blank">🌐 Web Tool</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="pub-card" data-year="old">
+      <div class="pub-img"><img src="images/proinflam.jpg" alt="" onerror="this.parentElement.style.background='var(--surface)'"></div>
+      <div class="pub-body">
+        <div class="pub-title"><a href="https://translational-medicine.biomedcentral.com/articles/10.1186/s12967-016-0928-3" target="_blank">ProInflam: a webserver for the prediction of proinflammatory antigenicity of peptides and proteins</a></div>
+        <div class="pub-authors">Sudheer Gupta, Midhun K. Madhu Dhakan, <strong>Ashok K. Sharma</strong>, Vineet K. Sharma</div>
+        <div class="pub-meta"><span class="pub-journal">Journal of Translational Medicine</span><span class="pub-year">2016</span></div>
+        <div class="pub-abstract">Unique tool for computational identification of proinflammatory peptide antigen candidates with leads for experimental validations.</div>
+        <div class="pub-links">
+          <a class="pub-link paper" href="https://translational-medicine.biomedcentral.com/articles/10.1186/s12967-016-0928-3" target="_blank">📄 Paper</a>
+          <a class="pub-link code" href="http://metagenomics.iiserb.ac.in/proinflam/" target="_blank">🌐 Web Tool</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="pub-card" data-year="old">
+      <div class="pub-img"><img src="images/hype.jpg" alt="" onerror="this.parentElement.style.background='var(--surface)'"></div>
+      <div class="pub-body">
+        <div class="pub-title"><a href="https://bmcgenomics.biomedcentral.com/articles/10.1186/s12864-016-2753-8" target="_blank">Prediction of peptidoglycan hydrolases — a new class of antibacterial proteins</a></div>
+        <div class="pub-authors"><strong>Ashok K. Sharma</strong>, Sanjiv Kumar, Harish K., Darshan Dhakan, Vineet K. Sharma</div>
+        <div class="pub-meta"><span class="pub-journal">BMC Genomics</span><span class="pub-year">2016</span></div>
+        <div class="pub-abstract">HyPe — the only tool available for prediction and classification of novel peptidoglycan hydrolases from complete genomic or metagenomic ORFs.</div>
+        <div class="pub-links">
+          <a class="pub-link paper" href="https://bmcgenomics.biomedcentral.com/articles/10.1186/s12864-016-2753-8" target="_blank">📄 Paper</a>
+          <a class="pub-link code" href="http://metagenomics.iiserb.ac.in/hype/" target="_blank">🌐 Web Tool</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="pub-card" data-year="old">
+      <div class="pub-img"><img src="images/binning.jpg" alt="" onerror="this.parentElement.style.background='var(--surface)'"></div>
+      <div class="pub-body">
+        <div class="pub-title"><a href="https://www.frontiersin.org/articles/10.3389/fmicb.2016.00469/full" target="_blank">Reconstruction of Bacterial and Viral Genomes from Multiple Metagenomes</a></div>
+        <div class="pub-authors">Ankit Gupta, Sanjiv Kumar, Vishnu Prasoodanan, Harish K., <strong>Ashok K. Sharma</strong>, Vineet K. Sharma</div>
+        <div class="pub-meta"><span class="pub-journal">Frontiers in Microbiology</span><span class="pub-year">2016</span></div>
+        <div class="pub-abstract">Binning-Assembly approach proposed and demonstrated for reconstruction of bacterial and viral genomes from 72 human gut metagenomic datasets.</div>
+        <div class="pub-links">
+          <a class="pub-link paper" href="https://www.frontiersin.org/articles/10.3389/fmicb.2016.00469/full" target="_blank">📄 Paper</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="pub-card" data-year="old">
+      <div class="pub-img"><img src="images/woods.jpg" alt="" onerror="this.parentElement.style.background='var(--surface)'"></div>
+      <div class="pub-body">
+        <div class="pub-title"><a href="https://www.sciencedirect.com/science/article/pii/S0888754315000543" target="_blank">Woods: A fast and accurate functional annotator and classifier of genomic and metagenomic sequences</a></div>
+        <div class="pub-authors"><strong>Ashok K. Sharma</strong>, Ankit Gupta, Sanjiv Kumar, Darshan Dhakan, Vineet K. Sharma</div>
+        <div class="pub-meta"><span class="pub-journal">Genomics</span><span class="pub-year">2015</span></div>
+        <div class="pub-abstract">Integrated approach for fast and accurate functional annotation of proteins in genomic and metagenomic datasets, available as standalone tool and public web-server.</div>
+        <div class="pub-links">
+          <a class="pub-link paper" href="https://www.sciencedirect.com/science/article/pii/S0888754315000543" target="_blank">📄 Paper</a>
+          <a class="pub-link code" href="http://metagenomics.iiserb.ac.in/woods/index.php" target="_blank">🌐 Web Tool</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="pub-card" data-year="old">
+      <div class="pub-img"><img src="images/16sclassifier.jpg" alt="" onerror="this.parentElement.style.background='var(--surface)'"></div>
+      <div class="pub-body">
+        <div class="pub-title"><a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0116106" target="_blank">The 16S Classifier: A Tool for Fast and Accurate Taxonomic Classification of 16S rRNA Hypervariable Regions in Metagenomic Datasets</a></div>
+        <div class="pub-authors">Nikhil Chaudhary, <strong>Ashok K. Sharma*</strong>, Piyush Agarwal, Ankit Gupta, Vineet K. Sharma</div>
+        <div class="pub-meta"><span class="pub-journal">PLOS ONE</span><span class="pub-year">2015</span></div>
+        <div class="pub-abstract">Random Forest based tool for fast, efficient, and accurate taxonomic classification of 16S rRNA sequences with unique ability to classify small Hypervariable Regions.</div>
+        <div class="pub-links">
+          <a class="pub-link paper" href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0116106" target="_blank">📄 Paper</a>
+          <a class="pub-link code" href="http://metagenomics.iiserb.ac.in/16Sclassifier/application.php" target="_blank">🌐 Web Tool</a>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /pub-grid -->
+</section>
+
+<!-- ===== TUTORIALS ===== -->
+<section id="tutorials">
+  <div class="section-header">
+    <h2 class="section-title">Tutorials</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="tut-grid">
+    <a href="https://github.com/ashoks773/SingleCell_CrohnsDataAnalysis" target="_blank" class="tut-card">
+      <div class="tut-icon">🔬</div>
+      <div class="tut-title">scRNA-seq Tutorial</div>
+      <div class="tut-desc">Single-cell RNA sequencing analysis workflow applied to Crohn's disease datasets. Covers preprocessing, clustering, differential expression, and cell type annotation.</div>
+      <span class="tut-badge">Under Prep</span>
+    </a>
+    <a href="https://github.com/ashoks773/SpatialTranscriptomicsWorkflow" target="_blank" class="tut-card">
+      <div class="tut-icon">🗺️</div>
+      <div class="tut-title">Spatial Transcriptomics Tutorial</div>
+      <div class="tut-desc">End-to-end spatial transcriptomics workflow including data processing, spatial clustering, cell type deconvolution, and visualization of tissue sections.</div>
+      <span class="tut-badge">Under Prep</span>
+    </a>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <p>© 2025 Ashok K. Sharma &nbsp;·&nbsp; Bioinformatics Scientist, Cedars-Sinai Medical Center &nbsp;·&nbsp;
+  <a href="mailto:ashoks773@gmail.com">ashoks773@gmail.com</a></p>
+</footer>
+
+<script>
+// ===== THEME =====
+function setTheme(t) {
+  document.documentElement.setAttribute('data-theme', t);
+  localStorage.setItem('theme', t);
+  document.querySelectorAll('.theme-option').forEach(o => {
+    o.classList.toggle('active', o.dataset.t === t);
+  });
+  document.getElementById('themePicker').classList.remove('open');
+}
+// Load saved theme
+(function(){ const t = localStorage.getItem('theme'); if(t) setTheme(t); })();
+
+// Close dropdown on outside click
+document.addEventListener('click', e => {
+  if (!e.target.closest('#themePicker'))
+    document.getElementById('themePicker').classList.remove('open');
+});
+
+// ===== PUB FILTER =====
+function filterPubs(year, btn) {
+  document.querySelectorAll('.pub-filter').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.pub-card').forEach(card => {
+    card.style.display = (year === 'all' || card.dataset.year === year) ? 'grid' : 'none';
+  });
+}
+
+// ===== TOC DOTS =====
+const anchors = ['about','experience','publications','tutorials'];
+const dots = document.querySelectorAll('.toc-dot');
+window.addEventListener('scroll', () => {
+  let cur = 0;
+  anchors.forEach((id, i) => {
+    const el = document.getElementById(id);
+    if (el && window.scrollY >= el.offsetTop - 150) cur = i;
+  });
+  dots.forEach((d,i) => d.classList.toggle('active', i === cur));
+}, { passive: true });
+</script>
+</body>
+</html>
