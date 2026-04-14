@@ -1,0 +1,8 @@
+Ashok K Sharma is a Postdoc Scientist at Cedars Sinai Medical Center, where he analyzes and integrates 
+multi-omics datasets to understand microbial regulation of immune responses in Crohn’s and Colitis. 
+Dr. Sharma received his Ph.D. in Computational Biology from IISER Bhopal in 2018, where he developed 
+and implemented machine learning-based computational methods for genomic and metagenomic data analysis. 
+He received B. Pharm in Pharmaceutical Sciences in 2010, followed by M.S. in Pharmacoinformatics in 2012 
+from NIPER Mohali, India. He received a Senior Research Fellowship in 2015, an EMBL grant in 2015, a DST 
+travel award in 2017, PBC Fellowship for Outstanding Post-Doctoral Researchers from China and India in 2018, 
+and International Travel Grant in 2019.
